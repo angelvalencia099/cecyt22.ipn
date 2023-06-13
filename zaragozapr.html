@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fichero de Zaragoza</title>
+  <style>
+    body {
+      background-image:"https://www.ipn.mx/assets/files/secgeneral/uploads/comunicado_ipn_sg_1.jpg";
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: #f2f2f2;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: #fff;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    .button-hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Fichero de Emiliano</h1>
+    
+    <div style="text-align: right;">
+      <button class="button" onclick="playMusic()">Reproducir música</button>
+    </div>
+    
+    <div style="position: fixed; bottom: 20px; left: 20px;">
+      <button class="button" onclick="showLinks()">Mostrar enlaces</button>
+      <div id="linksContainer" style="display: none; background-color: #fff; border-radius: 5px; padding: 10px; margin-top: 10px;">
+        <a href="kanyezara.html" class="button">Página 1</a><br>
+        <a href="zaragodza (1).html" class="button">Página 2</a><br>
+        <a href="kanyegodwest.html" class="button">Página 3</a><br>
+        <a href= class="button">Página 4</a><br>
+        <a href="pagina5.html" class="button">Página 5</a><br>
+        <a href="pagina5.html" class="button">Página 6</a><br>
+        <a href="ZaragozaEspindola.rar" class="button">Página 7</a><br>
+      </div>
+    </div>
+    
+    <button class="button-hidden" id="hiddenButton" onclick="playSpecialAudio()"></button>
+  </div>
+
+  <script>
+    function playMusic() {
+      // Lógica para reproducir música
+    }
+
+    function showLinks() {
+      var linksContainer = document.getElementById("linksContainer");
+      if (linksContainer.style.display === "none") {
+        linksContainer.style.display = "block";
+      } else {
+        linksContainer.style.display = "none";
+      }
+    }
+
+    function playSpecialAudio() {
+      // Lógica para reproducir el audio especial
+    }
+  </script>
+</body>
+</html>

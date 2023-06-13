@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Página con imágenes y recuadros</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    
+    #container {
+      height: 20%;
+      width: 100%;
+      display: flex;
+    }
+    
+    #left-image {
+      width: 20%;
+      background-image: url('https://www.cics-sto.ipn.mx/assets/files/cics-sto/img/conocenos/udi/logoCICSSTf.png');
+      background-repeat: no-repeat;
+      background-position: left center;
+      background-size: contain;
+    }
+    
+    #right-image {
+      width: 20%;
+      background-image: url('https://logos-world.net/wp-content/uploads/2022/06/IPN-Old-Logo.png');
+      background-repeat: no-repeat;
+      background-position: right center;
+      background-size: contain;
+    }
+    
+    #content {
+      width: 60%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .box {
+      margin: 10px;
+      padding: 20px;
+      border: 1px solid black;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div id="left-image"></div>
+    <div id="content">
+      <div class="box">Instituto Politécnico Nacional</div>
+      <div class="box">Centro de Estudios Tecnológicos Num. 22</div>
+      <div class="box">Enrique Salinas Rodriguez</div>
+    </div>
+    <div id="right-image"></div>
+  </div>
+</body>
+</html>

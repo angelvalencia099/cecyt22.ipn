@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Computación Básica II - Kanye West Songs</title>
+    <style>
+        body {
+            background-image: url("https://freight.cargo.site/t/original/i/88cf91df0085f8c9b9f104773faad9faaa66b7eee03a154f75742c68482fc9c7/kanye_02_loop_o.gif");
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: white;
+            font-family: "Lucida Grande", Arial, sans-serif;
+            font-size: 28px;
+            text-align: center;
+            padding: 20px;
+            font-style: italic;
+        }
+
+        .song-container {
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .song-title {
+            font-size: 24px;
+            color: #333333;
+            margin-bottom: 10px;
+            text-align: center;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .play-button {
+            background-color: #80080;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            font-size: 16px;
+            margin: 10px auto;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .lyrics-button {
+            background-color: #80080;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            font-size: 16px;
+            margin: 10px auto;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        #loader {
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #147EFB;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+            margin-top: 30px;
+            display: none;
+        }
+
+        #gif-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #lyrics {
+            display: none;
+            font-size: 20px;
+            text-align: center;
+            margin-top: 20px;
+            line-height: 1.5;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="font-family: cursive;">Kanye West Songs</h1>
+
+    <div class="song-container">
+        <h2 class="song-title">Good Morning</h2>
+        <button class="play-button" onclick="playSong('good_morning.mp3')">Play</button>
+        <button class="lyrics-button" onclick="showLyrics('good_morning_lyrics.txt')">Lyrics</button>
+        <div id="loader"></div>
+        <div id="gif-container"></div>
+    </div>
+
+    <div class="song-container">
+        <h2 class="song-title">I Wonder</h2>
+        <button class="play-button" onclick="playSong('i_wonder.mp3')">Play</button>
+        <button class="lyrics-button" onclick="showLyrics('i_wonder_lyrics.txt')">Lyrics</button>
+        <div id="loader"></div>
+        <div id="gif-container"></div>
+    </div>
+
+    <div class="song-container">
+        <h2 class="song-title">Flashing Lights</h2>
+        <button class="play-button" onclick="playSong('flashing_lights.mp3')">Play</button>
+        <button class="lyrics-button" onclick="showLyrics('flashing_lights_lyrics.txt')">Lyrics</button>
+        <div id="loader"></div>
+        <div id="gif-container"></div>
+    </div>
+
+    <audio id="audioPlayer"></audio>
+
+    <div id="lyrics" style="display: none;"></div>
+
+    <script>
+        function playSong(songFile) {
+            var audioPlayer = document.getElementById('audioPlayer');
+            var loader = document.getElementById('loader');
+            var gifContainer = document.getElementById('gif-container');
+
+            loader.style.display = 'block';
+            gifContainer.innerHTML = '<img src="file:///C:/Users/HPUSER/Downloads/teddykanyewest.png" />';
+
+            audioPlayer.src = songFile;
+
+            audioPlayer.oncanplay = function() {
+                loader.style.display = 'none';
+                audioPlayer.play();
+            };
+        }
+
+        function showLyrics(lyricsFile) {
+            var lyrics = document.getElementById('lyrics');
+
+            lyrics.style.display = 'block';
+
+            // Realiza una petición AJAX para obtener el contenido del archivo de letras
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var verses = xhr.responseText.split('\n');
+                    var i = 0;
+
+                    var interval = setInterval(function() {
+                        lyrics.innerHTML += verses[i] + "<br>";
+                        i++;
+
+                        if (i === verses.length) {
+                            clearInterval(interval);
+                        }
+                    }, 2000);
+                }
+            };
+            xhr.open('GET', lyricsFile, true);
+            xhr.send();
+        }
+    </script>
+</body>
+</html>
+
